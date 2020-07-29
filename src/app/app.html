@@ -1,0 +1,19 @@
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
+
+<ion-menu side="right" id="boardsPageMenu" [content]="myNav">
+    <ion-content>
+        <ion-row  justify-content-center>
+            <div class="wrap-img">
+                <img (click)="openPage('ProfilePage')" src="{{ avatar }}" menuClose>
+            </div>
+        </ion-row>
+        <ion-list>
+            <button ion-item (click)="openPage('ProfilePage')" menuClose>Profile</button>
+            <button ion-item (click)="openPage('ChangePasswordPage')" menuClose>Change Password</button>
+            <button ion-item (click)="openPage('SharedBoardsPage')" menuClose>Shared Boards</button>
+            <button ion-item menuClose (click)="logout()">Logout</button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #myNav [root]="rootPage"></ion-nav>
+    

@@ -1,0 +1,32 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+  
+  
+ <ion-content padding>
+    
+  <ion-row  justify-content-center>
+    <ion-img (click)="updateProfile()" width="150" height="150" class="profileImage" src="{{ avatar }}"></ion-img>
+  </ion-row>
+  <ion-list>
+    <ion-item>
+      <h2 ion-text>Name : {{ name }} </h2>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text>Username : {{ username }}</h2>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text>Email : {{ email }}</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,112 @@
+<!--
+  Generated template for the SharedCardsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Shared Cards</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-segment [(ngModel)]="cards">
+        <ion-segment-button value="todo">
+          ToDo
+        </ion-segment-button>
+        <ion-segment-button value="doing">
+          Doing
+        </ion-segment-button>
+        <ion-segment-button value="done">
+          Done
+        </ion-segment-button>
+      </ion-segment>
+  
+    <div [ngSwitch]="cards">
+      <ion-list *ngSwitchCase="'todo'">
+        <p ion-text text-center *ngIf="!todo">You don't have any shared Todo Cards.</p>
+        <div *ngIf="todo">
+          <ion-card *ngFor="let key of todoKeys" color="{{card[key].color}}">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-11 (click)="openCard(key, card[key])">
+                  <ion-card-header>
+                    <h2>{{ card[key].title }}</h2>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>{{ card[key].description }}</p>
+                  </ion-card-content>
+                  <div class="short-desc">
+                    <small *ngIf="card[key].duedate"><ion-icon name="calendar"></ion-icon> {{ card[key].duedate | date: 'MMM d, y' }}</small>
+                    <small><ion-icon name="checkbox-outline"></ion-icon> {{ card[key].completed_tasks }} / {{ card[key].total_tasks }}</small>
+                  </div>
+                </ion-col>
+                <ion-col col-1>
+                  <button ion-button icon-only clear (click)="cardActions(key, card[key])"><ion-icon name="more"></ion-icon></button>  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>          
+        </div>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'doing'">
+        <p ion-text text-center *ngIf="!doing">You don't have any shared Doing Cards.</p>
+        <div *ngIf="doing">
+          <ion-card *ngFor="let key of doingKeys" color="{{card[key].color}}">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-11 (click)="openCard(key, card[key])">
+                  <ion-card-header>
+                    <h2>{{ card[key].title }}</h2>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>{{ card[key].description }}</p>
+                  </ion-card-content>
+                  <div class="short-desc">
+                    <small *ngIf="card[key].duedate"><ion-icon name="calendar"></ion-icon> {{ card[key].duedate | date: 'MMM d, y' }}</small>
+                    <small><ion-icon name="checkbox-outline"></ion-icon> {{ card[key].completed_tasks }} / {{ card[key].total_tasks }}</small>
+                  </div>
+                </ion-col>
+                <ion-col col-1>
+                  <button ion-button icon-only clear (click)="cardActions(key, card[key])"><ion-icon name="more"></ion-icon></button>  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </div>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'done'">
+        <p ion-text text-center *ngIf="!done">You don't have any shared Done Cards.</p>
+        <div *ngIf="done">
+          <ion-card *ngFor="let key of doneKeys" color="{{card[key].color}}">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-11 (click)="openCard(key, card[key])">
+                  <ion-card-header>
+                    <h2>{{ card[key].title }}</h2>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>{{ card[key].description }}</p>
+                  </ion-card-content>
+                  <div class="short-desc">
+                    <small *ngIf="card[key].duedate"><ion-icon name="calendar"></ion-icon> {{ card[key].duedate | date: 'MMM d, y' }}</small>
+                    <small><ion-icon name="checkbox-outline"></ion-icon> {{ card[key].completed_tasks }} / {{ card[key].total_tasks }}</small>
+                  </div>
+                </ion-col>
+                <ion-col col-1>
+                  <button ion-button icon-only clear (click)="cardActions(key, card[key])"><ion-icon name="more"></ion-icon></button>  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </div>
+      </ion-list>
+    </div>
+
+</ion-content>

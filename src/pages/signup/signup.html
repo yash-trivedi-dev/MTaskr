@@ -1,0 +1,46 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title center>Signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form [formGroup]="signupForm" (ngSubmit)="signup()">
+		<ion-item>
+		    <ion-label floating>Name</ion-label>		    
+		    <small ion-text item-end floationg color="danger" *ngIf="name.hasError('required') && name.touched">Name is required.</small>
+		    <ion-input type="text" formControlName="name"></ion-input>
+		</ion-item>
+		<ion-item>
+		    <ion-label floating>Email</ion-label>		    
+		    <small ion-text item-end floationg color="danger" *ngIf="email.hasError('required') && email.hasError('email') && email.touched">Email is required</small>
+		    <small ion-text item-end floationg color="danger" *ngIf="email.hasError('email') && !email.hasError('required') && email.touched">Invalid Email.</small>
+		    <ion-input type="email" formControlName="email" required></ion-input>
+		</ion-item>
+		<ion-item>
+		    <ion-label floating>Password</ion-label>		    
+		    <small ion-text item-end floationg color="danger" *ngIf="password.hasError('required') && signupForm.hasError('minlen') && password.touched">Password is required.</small>
+		    <small ion-text item-end floationg color="danger" *ngIf="signupForm.hasError('minlen') && !password.hasError('required') && password.touched">Minimum length 6.</small>
+		    <ion-input [type]="passwordType" formControlName="password" show-password></ion-input>
+            <ion-icon [name]="toggleEye" class="passwordIcon" item-end (tap)="togglePassword()"></ion-icon>
+		</ion-item>
+		<ion-item>
+		    <ion-label floating>Confirm Password</ion-label>
+		    <small ion-text item-end floationg color="danger" *ngIf="confirmPassword.hasError('required') && confirmPassword.touched">Confirm Password is required.</small>
+		    <small ion-text item-end floationg color="danger" *ngIf="signupForm.hasError('mismatchedPasswords') && !confirmPassword.hasError('required') && confirmPassword.touched">Password do not Match.</small>
+		    <ion-input [type]="cpasswordType" formControlName="confirmPassword"></ion-input>
+            <ion-icon [name]="ctoggleEye" class="passwordIcon" item-end (tap)="ctogglePassword()"></ion-icon>
+		</ion-item><br>
+		<button ion-button margin-right round type="submit" [disabled]="!signupForm.valid">Signup</button>
+		<a ion-button round color="light" navPop>Back</a>
+	</form>
+</ion-content>

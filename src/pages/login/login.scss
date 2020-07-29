@@ -1,0 +1,32 @@
+page-login {
+    .login {
+        background-color: color($colors, primary);
+    }
+
+    .login .item-md {
+        background-color: transparent;
+    }
+
+    .login .item-input .label-md, .login p, .login .item-md {
+        color: #fff;
+    }
+
+    .login .item-md.item-block .item-inner {
+        border-bottom: 1px solid #fff;
+    }
+
+    .login .button-outline-md {
+        border-width: 2px;
+    }
+
+    .login ion-img {
+        width: 75%;
+        background: none;
+        height: 120px;
+    }
+
+    img {
+        max-width: 75%;
+    }
+    
+}

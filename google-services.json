@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "880269803311",
+    "firebase_url": "https://mtask-950d7.firebaseio.com",
+    "project_id": "mtask-950d7",
+    "storage_bucket": "mtask-950d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880269803311:android:d65343f8b6a84b0b",
+        "android_client_info": {
+          "package_name": "com.yashtrivedi.mtaskr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880269803311-6pmelvmsjbe0k7pnm8tmaml7odk009q4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuO4STVMrLfJRpyPpIwXxY6L0JnWIQG3s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

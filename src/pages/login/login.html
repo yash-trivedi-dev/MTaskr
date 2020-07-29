@@ -1,0 +1,44 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-content text-center class="login">
+	<ion-grid margin-top>
+	  <ion-row justify-content-center align-items-center style="height: 100%">
+	    <ion-col>
+        <img src="assets/logo.png">
+        <form [formGroup]="loginForm" margin-bottom (ngSubmit)="login()">
+          <ion-item>
+            <ion-label floating>Email*</ion-label>
+            <small ion-text item-end floating color="light" *ngIf="email.hasError('required') && email.touched && email.hasError('email')">Email is required</small>
+            <small ion-text item-end floating color="light" *ngIf="email.hasError('email') && !email.hasError('required') && email.touched">Invalid Email</small>
+            <ion-input type="email" formControlName="email" name="email" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password*</ion-label>
+            <small ion-text item-end floating color="light" *ngIf="password.hasError('required') && password.touched">Password is required</small>
+            <ion-input [type]="passwordType" formControlName="password" name="password" required></ion-input>
+            <ion-icon [name]="toggleEye" class="passwordIcon" item-end (tap)="togglePassword()"></ion-icon>
+          </ion-item><br>
+
+          <div text-right>
+            <a item-end color="light" navPush="ForgotPasswordPage" ion-button clear>Forgot Password?</a>
+          </div>
+          <button ion-button outline margin-right color="light" type="submit" [disabled]="!loginForm.valid" round>Login</button>
+          <a ion-button color="light" navPush="SignupPage" round>Signup</a>
+        </form>
+        <button ion-button clear margin-top navPush="AboutPage" color="light" round>About MTaskr</button>
+	   </ion-col>
+	  </ion-row>
+	</ion-grid>
+</ion-content>

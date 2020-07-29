@@ -1,0 +1,72 @@
+<!--
+  Generated template for the SharedCardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="{{ card.color }}">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="disscussionPage()"><ion-icon name="chatbubbles"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Shared Card</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="{{ card.color }}">
+      <ion-item>
+          <ion-label color="{{ card.color }}">Title</ion-label>
+          <ion-input type="text" disabled value="{{ card.title }}"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label color="{{ card.color }}">Description</ion-label>
+          <ion-textarea disabled value="{{ card.description }}"></ion-textarea>
+      </ion-item>
+      <ion-item>
+          <ion-label color="{{ card.color }}">Due Date</ion-label>
+          <ion-input type="text" disabled value="{{ card.duedate | date: 'MMM d, y' }}"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label color="{{ card.color }}">Members</ion-label>
+          <ion-input type="text" disabled></ion-input>
+      </ion-item>
+      <ion-item *ngFor="let mkey of memberskeys">
+        <ion-input type="text" disabled value="{{ members[mkey].username }}"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label color="{{ card.color }}">Status</ion-label>
+          <ion-input type="text" disabled value="{{ card.status | titlecase }}"></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-list-header color="light">
+          <h2><ion-icon name="checkbox-outline"></ion-icon> Checklist</h2>
+        </ion-list-header>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="addTaskVal" [ngModelOptions]="{standalone: true}" placeholder="Add Task"></ion-input>
+            <button ion-button item-end icon-only clear (click)="addTask()" ><ion-icon color="{{ card.color }}" name="add"></ion-icon></button>
+        </ion-item>
+        <div *ngIf="task">
+          <ion-item *ngFor="let key of taskkey">
+            <ion-label>{{ task[key].title }}</ion-label>
+            <ion-checkbox color="{{ card.color }}" (click)="checkTask(key, task[key].checked)" *ngIf="!task[key].checked"></ion-checkbox>
+            <ion-checkbox color="{{ card.color }}" (click)="checkTask(key, task[key].checked)" *ngIf="task[key].checked" checked></ion-checkbox>
+            <button ion-button clear icon-only item-end icon-start (click)="deleteTask(key, task[key])">
+              <ion-icon name="trash" color="danger"></ion-icon>
+            </button>
+          </ion-item>
+        </div>
+      </ion-list>
+      <ion-list>
+        <ion-list-header color="light">
+          <h2><ion-icon name="attach"></ion-icon> Attachment</h2>
+          <button ion-button (click)="addAttachment()" item-end icon-only clear><ion-icon color="{{ card.color }}" name="add"></ion-icon></button>
+        </ion-list-header>
+        <ion-item *ngFor="let akey of attachmentkeys" >
+          <p ion-text><a href="{{ card.attachments[akey].url }}"><ion-icon margin-right name="link"></ion-icon>{{ card.attachments[akey].name }}</a></p>
+        </ion-item>
+      </ion-list>
+</ion-content>
+  
